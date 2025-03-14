@@ -1,3 +1,4 @@
 selenium
+webdriver-manager
 bs4
 openpyxl
