@@ -1,6 +1,7 @@
 import streamlit as st
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -66,7 +67,11 @@ if initialize_button:
         chrome_options.add_argument("--disable-dev-shm-usage")  
         chrome_options.set_capability("goog:loggingPrefs", {"performance": "ALL"})
 
-        driver = webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options)
+        # Use Service to manage the WebDriver
+        service = Service(ChromeDriverManager().install())
+
+        # Correct WebDriver initialization
+        driver = webdriver.Chrome(service=service, options=chrome_options)
 
         # Open the website
         driver.get("https://acclaim.tulsacounty.org/AcclaimWeb/Account/Login")
