@@ -68,7 +68,7 @@ if initialize_button:
         chrome_options.set_capability("goog:loggingPrefs", {"performance": "ALL"})
 
         # Use Service to manage the WebDriver
-        service = Service(ChromeDriverManager(version="120.0.6099.224").install())
+        service = Service(ChromeDriverManager(driver_version="120.0.6099.224").install())
 
         # Correct WebDriver initialization
         driver = webdriver.Chrome(service=service, options=chrome_options)
