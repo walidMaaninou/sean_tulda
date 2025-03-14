@@ -5,6 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
+from webdriver_manager.chrome import ChromeDriverManager
 import time
 import json
 import requests
@@ -65,7 +66,7 @@ if initialize_button:
         chrome_options.add_argument("--disable-dev-shm-usage")  
         chrome_options.set_capability("goog:loggingPrefs", {"performance": "ALL"})
 
-        driver = webdriver.Chrome(options=chrome_options)
+        driver = webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options)
 
         # Open the website
         driver.get("https://acclaim.tulsacounty.org/AcclaimWeb/Account/Login")
