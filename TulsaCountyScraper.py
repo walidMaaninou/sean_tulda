@@ -57,8 +57,8 @@ if initialize_button:
         chrome_options.add_argument("--disable-dev-shm-usage")
         chrome_options.set_capability("goog:loggingPrefs", {"performance": "ALL"})
 
-        # service = Service(ChromeDriverManager(driver_version="120.0.6099.224").install())
-        service = Service(ChromeDriverManager(driver_version="134.0.6998.89").install())
+        service = Service(ChromeDriverManager(driver_version="120.0.6099.224").install())
+        # service = Service(ChromeDriverManager(driver_version="134.0.6998.89").install())
 
         driver = webdriver.Chrome(service=service, options=chrome_options)
 
